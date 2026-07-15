@@ -66,22 +66,3 @@ window.addEventListener('keydown', (event) => {
     closeModal();
   }
 });
-
-// Menu mobile (hamburger)
-const navToggle = document.getElementById('navToggle');
-const siteNav = document.getElementById('siteNav');
-
-navToggle.addEventListener('click', () => {
-    siteNav.classList.toggle('open');
-    const isOpen = siteNav.classList.contains('open');
-    navToggle.setAttribute('aria-expanded', isOpen);
-});
-
-// Ferme le menu automatiquement quand on clique sur un lien (mobile)
-const navLinks = siteNav.querySelectorAll('a');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        siteNav.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', false);
-    });
-});
