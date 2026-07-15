@@ -6,6 +6,31 @@ if (discoverBtn) {
   });
 }
 
+// NAV responsive (mobile)
+const navToggle = document.getElementById('navToggle');
+const siteNav = document.getElementById('siteNav');
+
+if (navToggle && siteNav) {
+  const setExpanded = (expanded) => {
+    siteNav.classList.toggle('open', expanded);
+    navToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  };
+
+  setExpanded(false);
+
+  navToggle.addEventListener('click', () => {
+    const isOpen = siteNav.classList.contains('open');
+    setExpanded(!isOpen);
+  });
+
+  // Fermer le menu après un clic sur un lien (mobile)
+  siteNav.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => {
+      if (window.innerWidth <= 768) setExpanded(false);
+    });
+  });
+}
+
 const galleryImages = document.querySelectorAll('.gallery-item img');
 const imageModal = document.getElementById('imageModal');
 const modalImage = document.getElementById('modalImage');
@@ -34,3 +59,29 @@ if (imageModal) {
     }
   });
 }
+
+// Fermer au clavier (Escape) - utile sur mobile avec clavier externe
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && imageModal && imageModal.classList.contains('active')) {
+    closeModal();
+  }
+});
+
+// Menu mobile (hamburger)
+const navToggle = document.getElementById('navToggle');
+const siteNav = document.getElementById('siteNav');
+
+navToggle.addEventListener('click', () => {
+    siteNav.classList.toggle('open');
+    const isOpen = siteNav.classList.contains('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+});
+
+// Ferme le menu automatiquement quand on clique sur un lien (mobile)
+const navLinks = siteNav.querySelectorAll('a');
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        siteNav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', false);
+    });
+});

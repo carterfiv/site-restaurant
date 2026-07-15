@@ -30,6 +30,35 @@ header {
     z-index: 100;
 }
 
+/* NAV toggle (mobile) */
+.nav-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(46, 125, 50, 0.08);
+    cursor: pointer;
+}
+
+.nav-toggle:focus-visible {
+    outline: 3px solid rgba(46, 125, 50, 0.35);
+    outline-offset: 2px;
+}
+
+.nav-toggle-bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin: 0 auto;
+    background: #2e7d32;
+}
+
+/* espace pour le focus/alignement visuel */
+.nav-toggle-bar + .nav-toggle-bar {
+    margin-top: 4px;
+}
+
 .logo {
     font-size: 24px;
     font-weight: bold;
@@ -358,3 +387,173 @@ footer {
     color: white;
     font-size: 14px;
 }
+
+/* RESPONSIVE NAV (téléphone / tablette) */
+@media (max-width: 1024px) {
+    header {
+        padding: 16px 22px;
+    }
+
+    .hero {
+        padding: 90px 18px;
+    }
+
+    .hero p {
+        font-size: 1.02rem;
+    }
+
+    .apropos {
+        padding: 50px 22px;
+    }
+
+    .apropos h2 {
+        font-size: 2.1rem;
+    }
+
+    .menu h2,
+    .galerie h2,
+    .contact h2 {
+        font-size: 28px;
+    }
+
+    .menu {
+        padding: 50px 16px;
+    }
+
+    .menu-item img {
+        height: 170px;
+    }
+
+    .galerie {
+        padding: 50px 16px;
+    }
+
+    .gallery-item img {
+        height: 180px;
+    }
+
+    .map {
+        min-height: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 12px 14px;
+        gap: 10px;
+    }
+
+    .logo img {
+        max-height: 42px;
+    }
+
+    .hero {
+        padding: 78px 14px;
+    }
+
+    .hero p {
+        font-size: 0.98rem;
+        margin-bottom: 22px;
+    }
+
+    .btn {
+        padding: 12px 22px;
+    }
+
+    .apropos {
+        padding: 40px 16px;
+        margin: -46px auto 28px;
+    }
+
+    .apropos h2 {
+        font-size: 1.85rem;
+    }
+
+    .menu,
+    .galerie,
+    .contact {
+        padding-top: 44px;
+        padding-bottom: 44px;
+    }
+
+    .menu-item {
+        padding: 16px;
+    }
+
+    .menu-item img {
+        height: 150px;
+    }
+
+    .gallery-item img {
+        height: 160px;
+    }
+
+    .map {
+        min-height: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    .logo img {
+        max-height: 48px;
+    }
+
+    .nav-toggle {
+        display: inline-block;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    /* par défaut fermé */
+    #siteNav {
+        display: none;
+        width: 100%;
+    }
+
+    #siteNav.open {
+        display: block;
+    }
+
+    #siteNav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 14px 0 8px;
+    }
+
+    header nav ul {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    header nav ul li a {
+        display: inline-block;
+        padding: 10px 12px;
+        border-radius: 12px;
+        width: 100%;
+        min-height: 44px; /* meilleur confort touch */
+    }
+
+    header nav ul li a:hover {
+        transform: none;
+        background: rgba(46, 125, 50, 0.10);
+        color: #2e7d32;
+    }
+}
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column !important;
+        width: 100%;
+    }
+}
+
