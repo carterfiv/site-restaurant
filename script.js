@@ -31,7 +31,7 @@ if (navToggle && siteNav) {
   });
 }
 
-const galleryImages = document.querySelectorAll('.gallery-item img');
+const galleryImages = document.querySelectorAll('.gallery-item img, .menu-item img');
 const imageModal = document.getElementById('imageModal');
 const modalImage = document.getElementById('modalImage');
 const imageModalClose = document.getElementById('imageModalClose');
